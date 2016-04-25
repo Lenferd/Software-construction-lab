@@ -8,7 +8,7 @@ Bed::Bed (int width, int height):Furniture(width, height)
 {}
 
 
-Bed* Bed()::clone() 
+Bed* Bed::clone() 
 {
 	return new Bed(*this);
 }
@@ -22,7 +22,7 @@ Table::Table (int width, int height):Furniture(width, height)
 {}
 
 
-Table* Table()::clone() 
+Table* Table::clone() 
 {
 	return new Table(*this);
 }

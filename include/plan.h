@@ -1,5 +1,6 @@
 // Тут подразумевается использование паттерна Строитель
 #include <vector>
+#include <memory>
 
 #include "room_objects.h"
 
@@ -9,7 +10,7 @@ using std::vector;
 // Product
 class Plan
 {
-	protected:
+	public:
 	  vector<Wall> walls;
 	  vector<Door> doors;
 	  vector<Window> windows;
@@ -26,7 +27,6 @@ protected:
 
 public:
   PlanBuilder();
-  virtual ~ PlanBuilder ()
   virtual void buildWalls() = 0;   // Метод для построения стен
   virtual void buildDoors() = 0;   // Метод для построения дверей
   virtual void buildWindows() = 0; // Метод для построения окон

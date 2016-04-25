@@ -11,7 +11,7 @@ void Plan::draw()
 	  door.draw();
 	
 	// Отрисовываем все окна
-	for (Window windous : windous)
+	for (Window windous : windows)
 	  windous.draw();
 	 
 }
@@ -64,7 +64,8 @@ void KitchenPlanBuilder::buildWalls()
 // 
 void KitchenPlanBuilder::buildDoors()
 {
-	Door entrance (???);
+  //???
+	Door entrance (0,0,0,0);
 	
 	plan->doors.push_back(entrance);
 }
@@ -72,7 +73,8 @@ void KitchenPlanBuilder::buildDoors()
 // 
 void KitchenPlanBuilder::buildDoors()
 {
-	Windows first (???);
+  //???
+  Window first (0,0,0,0);
 	
 	plan->windows.push_back(first);
 	
