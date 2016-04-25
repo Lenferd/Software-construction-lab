@@ -15,7 +15,7 @@ RoomObjects::RoomObjects (int x1, int y1, int x2, int y2)
 Wall::Wall (int x1, int y1, int x2, int y2) : RoomObjects(x1, y1, x2, y2)
 {}
 
-Wall::Wall* clone()
+Wall* Wall::clone()
 {
 	return new Wall(*this);
 }
@@ -28,7 +28,7 @@ void Wall::draw()
 Door::Door (int x1, int y1, int x2, int y2) : RoomObjects(x1, y1, x2, y2)
 {}
 
-Door::Door* clone()
+Door* Door:: clone()
 {
 	return new Door(*this);
 }
@@ -42,7 +42,7 @@ void Door::draw()
 Window::Window (int x1, int y1, int x2, int y2) : RoomObjects(x1, y1, x2, y2)
 {}
 
-Window::Window* clone()
+Window* Window:: clone()
 {
 	return new Window(*this);
 }
