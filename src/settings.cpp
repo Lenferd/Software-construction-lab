@@ -1,0 +1,6 @@
+#include "settings"
+
+Settings::Settings()
+{
+	
+}

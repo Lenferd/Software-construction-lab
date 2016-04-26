@@ -12,8 +12,13 @@ class Settings
 	public:
 		string last_login;
 		string name;
-		ыурпзлцхрцрн43рн34нррнк//Шта? //Психанул
+		int apartment_size;
+		static Settings* getSettings();
+		
 	protected:
+		Settings()
+		static Settings* self_;
+		
 }
 
 
