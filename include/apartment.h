@@ -6,8 +6,8 @@ class Apartment
 {
 	private:
 	  int width_;
-	  int height_;
-	  Array <Array<bool, width_>,height_> placement_;
+	  int length_;
+	  Array <Array<bool, width_>,length_> placement_;
 
 	
 	
