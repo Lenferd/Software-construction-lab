@@ -1,4 +1,3 @@
-
 // Интерфейсный класс. батька всех вещей :+1:
 class Furniture
 {
@@ -15,14 +14,14 @@ class Bed : public Furniture
 {
   public:
     Bed (int width, int height);
-	  virtual Bed* clone() override;
-	  void draw() override;
+    virtual Bed* clone() override;
+    void draw() override;
 };
 
 class Table : public Furniture
 {
   public:
-	  Table (int width, int height);
-	  virtual Table* clone() override;
-	  void draw() override;
+    Table (int width, int height);
+    virtual Table* clone() override;
+    void draw() override;
 };
