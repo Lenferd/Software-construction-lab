@@ -18,7 +18,7 @@ public:
 
 protected:
     static Config* _self;
-    Config(int wigth, int legth);
+    Config(int width, int length);
 
     int width_;
     int length_;
