@@ -57,13 +57,11 @@ class KitchenPlanBuilder : public PlanBuilder {
 
 // Director
 // именно тут должен быть заложен алогритм размещения комнат
-// хз чё писать
 class Director
 {
 private:
     shared_ptr<PlanBuilder> planbuilder;
 public:
     void setPlan(shared_ptr<PlanBuilder> ptr);
-
     void constructPlan();
 };
