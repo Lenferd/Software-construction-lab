@@ -1,10 +1,18 @@
 #include <iostream>
+#include <plan.h>
 
-using namespace std;
 
-int main()
-{
-    cout << "Fuck" << endl;
-    
+int main() {
+  std::shared_ptr<PlanBuilder> kuh (new EmptyPlanBuilder());
+  Director dir;
+  dir.setPlan(kuh);
+  dir.constructPlan();
+  kuh->draw();
+
+  kuh.reset(new KitchenPlanBuilder);
+  dir.setPlan(kuh);
+  dir.constructPlan();
+  kuh->draw();
+
     return 0;
 }

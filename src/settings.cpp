@@ -1,6 +1,0 @@
-#include "settings"
-
-Settings::Settings()
-{
-	
-}
