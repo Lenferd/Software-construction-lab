@@ -13,8 +13,6 @@ Config::Config(int width, int length) {
 
   for (auto& Array1D : Array2D)
     Array1D.assign(length, false);
-
-
 }
 
 //Метод получения доступа к объекту
