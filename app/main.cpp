@@ -1,18 +1,24 @@
 #include <iostream>
-#include <plan.h>
 
+#include <abstract_fabrican.h>
 
 int main() {
-  std::shared_ptr<PlanBuilder> kuh (new EmptyPlanBuilder());
-  Director dir;
-  dir.setPlan(kuh);
-  dir.constructPlan();
-  kuh->draw();
+  FurnitureFactory* fabric;
 
-  kuh.reset(new KitchenPlanBuilder);
-  dir.setPlan(kuh);
-  dir.constructPlan();
-  kuh->draw();
+  fabric = new Bathroom();
 
-    return 0;
+  Collection bathroom (fabric);
+  bathroom.draw();
+
+  delete fabric;
+
+  std::cout << std::endl;
+
+  fabric = new Kitchen();
+
+  Collection kitchen (fabric);
+  kitchen.draw();
+
+  delete fabric;
+  return 0;
 }
