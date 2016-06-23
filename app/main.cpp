@@ -1,18 +1,22 @@
 #include <iostream>
 #include <plan.h>
 
+int main()
+{
+    Director dir;
+    //BathroomPlanBuilder
+    std::cout << "Bathroom" << std::endl;
+    std::shared_ptr<PlanBuilder> room(new BathroomPlanBuilder());
+    dir.setPlan(room);
+    dir.constructPlan();
+    room->draw();
 
-int main() {
-  std::shared_ptr<PlanBuilder> kuh (new EmptyPlanBuilder());
-  Director dir;
-  dir.setPlan(kuh);
-  dir.constructPlan();
-  kuh->draw();
-
-  kuh.reset(new KitchenPlanBuilder);
-  dir.setPlan(kuh);
-  dir.constructPlan();
-  kuh->draw();
+    //BedroomPlanBuilder
+    std::cout << "Bedroom" << std::endl;
+    room.reset(new BedroomPlanBuilder());
+    dir.setPlan(room);
+    dir.constructPlan();
+    room->draw();
 
     return 0;
 }

@@ -2,7 +2,7 @@
 
 void Plan::draw()
 {
-  // Отрисовываем все стены
+    // Отрисовываем все стены
   for (Wall wall : walls)
     wall.draw();
 
@@ -13,79 +13,56 @@ void Plan::draw()
   // Отрисовываем все окна
   for (Window windous : windows)
     windous.draw();
-
 }
 
-// МЕТОДЫ ПУТОЙ КОМНАТЫ
-
-// строим стены в пустой комнате
-void EmptyPlanBuilder::buildWalls()
+void BathroomPlanBuilder::buildWalls()
 {
-  Wall wall_front (0 ,0 ,10,0 );
-  Wall wall_back  (10,0 ,10,10);
-  Wall wall_left  (10,10,0 ,10);
-  Wall wall_rigth (0 ,10,0 ,0 );
-
-  plan->walls.push_back(wall_front);
-  plan->walls.push_back(wall_back);
-  plan->walls.push_back(wall_left);
-  plan->walls.push_back(wall_rigth);
+    Wall wall_front(0, 0, 4, 0);
+    Wall wall_left(0, 0, 0, 2);
+    Wall wall_rigth(4,0, 4,2);
+    Wall wall_back(0,2,4,2);
+    plan_->addWall(wall_front);
+    plan_->addWall(wall_left);
+    plan_->addWall(wall_rigth);
+    plan_->addWall(wall_back);
 }
 
-// Двери в пустой комнате будут? //Почему нет, если комната, то доступ должен быть
-// Надо договориться, какой комнатой будем называть пустой)
-void EmptyPlanBuilder::buildWindows() {
-}
-
-// Окна в пуской комнате полагаю не будет
-void EmptyPlanBuilder::buildDoors() {
-}
-
-// МЕТОДЫ КУХНИ
-
-// строим стены на кухне
-// вообще координаты зависят от первоначального размера квартиры
-// обязательно не забыть спросить
-void KitchenPlanBuilder::buildWalls()
+void BathroomPlanBuilder::buildDoors()
 {
-  Wall wall_front (0 ,0 ,10,0 );
-  Wall wall_back  (10,0 ,10,10);
-  Wall wall_left  (10,10,0 ,10);
-  Wall wall_rigth (0 ,10,0 ,0 );
-
-  plan->walls.push_back(wall_front);
-  plan->walls.push_back(wall_back);
-  plan->walls.push_back(wall_left);
-  plan->walls.push_back(wall_rigth);
+    Door door(0, 0, 0, 1);
+    plan_->addDoor(door);
 }
 
-// 
-void KitchenPlanBuilder::buildDoors()
+void BathroomPlanBuilder::buildWindows()
+{}
+
+void BedroomPlanBuilder::buildWalls()
 {
-  //???
-  Door entrance (0,0,0,0);
-
-  plan->doors.push_back(entrance);
+    Wall wall_front(0, 0, 5, 0);
+    Wall wall_left(0, 0, 0, 5);
+    Wall wall_rigth(5, 0, 5, 5);
+    Wall wall_back(0, 5, 5, 5);
+    plan_->addWall(wall_front);
+    plan_->addWall(wall_left);
+    plan_->addWall(wall_rigth);
+    plan_->addWall(wall_back);
 }
 
-// 
-void KitchenPlanBuilder::buildWindows()
+void BedroomPlanBuilder::buildDoors()
 {
-  //???
-  Window first (0,0,0,0);
-
-  plan->windows.push_back(first);
-
+    Door door(1, 0, 2, 0);
+    plan_->addDoor(door);
 }
 
-void Director::setPlan(shared_ptr<PlanBuilder> ptr) {
-  planbuilder = ptr;
+void BedroomPlanBuilder::buildWindows()
+{
+    Window window(5, 2, 5, 5);
+    plan_->addWindow(window);
 }
 
-void Director::constructPlan() {
-  planbuilder->buildDoors();
-  planbuilder->buildWalls();
-  planbuilder->buildWindows();
+void Director::constructPlan()
+{
+    planbuilder->buildWalls();
+    planbuilder->buildWindows();
+    planbuilder->buildDoors();
 }
-
-
